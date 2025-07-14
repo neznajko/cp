@@ -4,3 +4,5 @@
 
 # C++
 - GoodSubstrings.cpp [ String Processing :: Hashing ]
+- LongestDup.cc [ String Processing :: Rabin-Karp ]
+

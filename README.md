@@ -9,3 +9,7 @@
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]
+
+# Go
+- StringHashing.go [ String Processing :: Hashing ]
+

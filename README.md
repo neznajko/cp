@@ -12,4 +12,5 @@
 
 # Go
 - StringHashing.go [ String Processing :: Hashing ]
+- Berland.go [ String Processing :: Knuth–Morris–Pratt ]
 

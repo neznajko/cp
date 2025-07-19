@@ -9,6 +9,7 @@
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]
+- maxsq.rs [ Dynamic Programming :: Introduction to DP ]
 
 # Go
 - StringHashing.go [ String Processing :: Hashing ]

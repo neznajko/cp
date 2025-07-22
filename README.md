@@ -7,6 +7,7 @@
 - LongestDup.cc [ String Processing :: Rabin-Karp ]
 - FourChips.cpp [ Graphs :: Graph traversal :: Breadth First Search ]
 - BookShop.cpp [ Dynamic Programming :: Knapsack Problem ]
+- BlocksOfString.cc [ String Processing :: Z-function ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

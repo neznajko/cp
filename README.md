@@ -9,6 +9,7 @@
 - BookShop.cpp [ Dynamic Programming :: Knapsack Problem ]
 - BlocksOfString.cc [ String Processing :: Z-function ]
 - password.cc [ String Processing :: Z-function ]
+- gcd.cc [ Algebra ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

@@ -10,6 +10,7 @@
 - BlocksOfString.cc [ String Processing :: Z-function ]
 - password.cc [ String Processing :: Z-function ]
 - gcd.cc [ Algebra ]
+- Fight_in_Ninja_World.cc [ Trees :: Disjoint Set Union ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

@@ -11,6 +11,7 @@
 - password.cc [ String Processing :: Z-function ]
 - gcd.cc [ Algebra ]
 - Fight_in_Ninja_World.cc [ Trees :: Disjoint Set Union ]
+- NHAY.cpp [ String Processing :: Hashing ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

@@ -244,15 +244,12 @@ int main()
 //    a = u(a,b), for some u in N, zo t = ub => b|t
 //    b = v(a,b), for some v in N, zo t = va => a|t
 //
-// 2) if s: a|s and b|s, then s <= t
-//    cos a|s we have s = wa for some w in N, let as before
-//    a = u(a,b), for some u in N, u and b don't have common
-//    factors, otherwise (a,b) wouldn't be the greatest common
-//    divisor, that is (u,b) = 1, zo the fact that b divides
-//    s = wa = wu(a,b) means that b|w(a,b), now coz b = v(a,b),
-//    we have v|w, zo w = xv for some x in N, that is s = xvu =
-//    xab/(a,b) = xt >= t                                      «
-//
+// 2) if s: a|s, b|s then s >= t
+//    a|s => s = aw = (a,b)uw, for some w in N
+//    b = v(a,b) divides s = (a,b)uw as well, that is v|uw, but 
+//    (v,u) = 1, otherwise (v,u)(a,b) will divide both a and b,
+//    and (a,b) wouldn't be gcd, zo v|w, that is w = kv for some
+//    k in N, zo s = k(a,b)uv = kab/(a,b) = kt >= t            «
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////

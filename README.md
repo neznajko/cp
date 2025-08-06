@@ -12,6 +12,7 @@
 - gcd.cc [ Algebra ]
 - Fight_in_Ninja_World.cc [ Trees :: Disjoint Set Union ]
 - NHAY.cpp [ String Processing :: Hashing ]
+- subsprob.cpp [ String Processing :: Rabin-Karp ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

@@ -16,6 +16,7 @@
 - The_Gift_Of_Raksha_Bandhan.cpp [ String Processing :: Hashing ]
 - Double_Profiles.cpp [ String Processing :: Hashing ]
 - Spring_Cleaning.cpp [ String Processing :: Hashing ]
+- Text_Editor.cpp [ String Processing :: Hashing ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

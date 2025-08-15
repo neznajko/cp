@@ -52,7 +52,7 @@
 // 1            # P1 = 131, M1 = 1'000'000'009                 #
 // Output       # P2 = 137, M2 = 1'000'000'007                 #
 // IMPOSSIBLE   # then precompute powers and hashes for S and  #
-// Input        # T respectively, and then do the binary sr ch.#
+// Input        # T respectively, and then do the binary srch. #
 // abracadabra  # Then what? After that we get mapping         #
 // abra         # length of prefix -> count, then we can start #
 // 1            # from the rear and check greedily the maximum #

@@ -17,6 +17,7 @@
 - Double_Profiles.cpp [ String Processing :: Hashing ]
 - Spring_Cleaning.cpp [ String Processing :: Hashing ]
 - Text_Editor.cpp [ String Processing :: Hashing ]
+- Vacations.cpp [ Dynamic Programming :: Introduction to DP ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

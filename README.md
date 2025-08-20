@@ -18,6 +18,7 @@
 - Spring_Cleaning.cpp [ String Processing :: Hashing ]
 - Text_Editor.cpp [ String Processing :: Hashing ]
 - Vacations.cpp [ Dynamic Programming :: Introduction to DP ]
+- Hard_Problem.cpp [ Dynamic Programming :: Introduction to DP ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

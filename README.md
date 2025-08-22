@@ -19,6 +19,7 @@
 - Text_Editor.cpp [ String Processing :: Hashing ]
 - Vacations.cpp [ Dynamic Programming :: Introduction to DP ]
 - Hard_Problem.cpp [ Dynamic Programming :: Introduction to DP ]
+- Triangulation.cpp [ Dynamic Programming :: Introduction to DP ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

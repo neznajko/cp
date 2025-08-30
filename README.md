@@ -21,6 +21,7 @@
 - Hard_Problem.cpp [ Dynamic Programming :: Introduction to DP ]
 - Triangulation.cpp [ Dynamic Programming :: Introduction to DP ]
 - Knapsack_1.cpp [ Dynamic Programming :: Knapsack Problem ]
+- Target_Sum.cpp [ Dynamic Programming :: Knapsack Problem ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

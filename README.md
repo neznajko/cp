@@ -24,6 +24,7 @@
 - Target_Sum.cpp [ Dynamic Programming :: Knapsack Problem ]
 - Knapsack_3.cpp [ Dynamic Programming :: Knapsack Problem ]
 - Knapsack_4.cc [ Dynamic Programming :: Knapsack Problem ]
+- Periodic_Strings.cpp [ String Processing :: Knuth–Morris–Pratt ]
 
 # Rust
 - kmp.rs [ String Processing :: Knuth–Morris–Pratt ]

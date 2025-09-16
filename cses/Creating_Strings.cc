@@ -1,0 +1,190 @@
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+// Creating Strings
+////////////////////////////////////////////////////////////////
+// Time limit: 1.00 s
+// Memory limit: 512 MB
+////////////////////////////////////////////////////////////////
+// Given a string, your task is to generate all different
+// strings that can be created using its characters.
+////////////////////////////////////////////////////////////////
+// Input
+// The only input line has a string of length n. Each character
+// is between a–z.
+////////////////////////////////////////////////////////////////
+// Output
+// First print an integer k: the number of strings. Then print k
+// lines: the strings in alphabetical order.
+////////////////////////////////////////////////////////////////
+// Constraints
+// 1 <= n <= 8
+////////////////////////////////////////////////////////////////
+// Example
+// Input:
+// aabac
+// Output:
+// 20
+// aaabc
+// aaacb
+// aabac
+// aabca
+// aacab
+// aacba
+// abaac
+// abaca
+// abcaa
+// acaab
+// acaba
+// acbaa
+// baaac
+// baaca
+// bacaa
+// bcaaa
+// caaab
+// caaba
+// cabaa
+// cbaaa
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+# include <bits/stdc++.h>
+////////////////////////////////////////////////////////////////
+using namespace std;
+////////////////////////////////////////////////////////////////
+using i32 = int;
+using u32 = unsigned int;
+using i64 = long long;
+using u64 = unsigned long long;
+using vi32 = vector<i32>;
+using vu32 = vector<u32>;
+using vi64 = vector<i64>;
+using vu64 = vector<u64>;
+using vb8l = vector<bool>;
+using vstr = vector<string>;
+using pu32 = pair<u32,u32>;
+using vpu32 = vector<pu32>;
+////////////////////////////////////////////////////////////////
+constexpr char nl = '\n';
+constexpr char sp = ' ';
+constexpr char tab = '\t';
+constexpr u64 mod1 = 1'000'000'007;
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+inline void vrooom() {
+    cin.tie( nullptr )->sync_with_stdio( false );
+}
+////////////////////////////////////////////////////////////////
+template <typename T>
+inline T load_scalar() {
+    T y; cin >> y;
+    return y;
+}
+////////////////////////////////////////////////////////////////
+template <typename T>
+inline vector<T> load_vector( int n ) {
+    vector<T> y( n ); cin >> y;
+    return y;
+}
+////////////////////////////////////////////////////////////////
+template <typename T>
+istream& operator>>( istream& is, vector<T>& v ){
+    for( auto& y: v ){ is >> y; }
+    return is;
+}
+////////////////////////////////////////////////////////////////
+struct {
+    string open_bracket;
+    string close_bracket;
+    string separator;
+} CONT{ "[", "]", "," },
+  PAIR{ "(", ")", ":" };
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+# define FOR_THE_HORDE auto t = load_scalar<u32>(); while( t-- )
+# define PSH push_back
+# define POP pop_back
+# define EMP emplace_back
+# define odd( x ) ((x) & 1)
+# define evn( y ) (!odd( y ))
+# define sqr( x ) ((x) * (x))
+# define all( x ) x.begin(), x.end()
+# define siz( y ) y.size()
+# define dbg( x ) cerr << #x << " = " << x << nl
+# define key( p ) p.first
+# define val( p ) p.second
+////////////////////////////////////////////////////////////////
+# define OVERLOAD_OSTREAM_OPERATOR( Container )                \
+template <typename... T>                                       \
+ostream& operator<<( ostream& os, const Container<T...>& con ){\
+    os << CONT.open_bracket;                                   \
+    string sep = "";                                           \
+    for( const auto& y: con ){                                 \
+        os << sep << y;                                        \
+        sep = CONT.separator;                                  \
+    }                                                          \
+    return os << CONT.close_bracket;                           \
+}
+////////////////////////////////////////////////////////////////
+template <typename K, typename V>
+ostream& operator<<( ostream& os, const pair<K,V>& p ){
+    return os << PAIR.open_bracket
+              << key( p )
+              << PAIR.separator
+              << val( p )
+              << PAIR.close_bracket;
+}
+////////////////////////////////////////////////////////////////
+OVERLOAD_OSTREAM_OPERATOR( vector );
+OVERLOAD_OSTREAM_OPERATOR( set );
+////////////////////////////////////////////////////////////////
+class Algorithm {
+public:
+    Algorithm( const string& a ):
+        n( siz( a )),
+        a( a ),
+        p( string( n, '-' ))
+    {}
+    void pusk() {
+        srch( 0 );
+        CONT = { "", "", "\n" };
+        cout << siz( s ) << nl << s << nl;
+    }
+private:
+    const u32 n;
+    const string& a;
+    string p;
+    set<string> s;
+    void srch( u32 j ){
+        if( j == n ){
+            s.insert( p );
+        }
+        for( u32 i = 0; i < n; ++i ){
+            if( p [i] == '-' ){
+                p [i] = a [j];
+                srch( j + 1 );
+                p [i] = '-';
+            }
+        }
+    }
+};
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+int main() {
+    vrooom();
+    if( 0 ){
+    } else {
+        auto a = load_scalar<string>();
+        Algorithm( a ).pusk();
+    }
+}
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////

@@ -1,0 +1,183 @@
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+// Apple Division
+////////////////////////////////////////////////////////////////
+// Time limit: 1.00 s
+// Memory limit: 512 MB
+////////////////////////////////////////////////////////////////
+// There are n apples with known weights. Your task is to divide
+// the apples into two groups so that the difference between the
+// weights of the groups is minimal.
+////////////////////////////////////////////////////////////////
+// Input
+// The first input line has an integer n: the number of apples.
+// The next line has n integers p_1,p_2,...,p_n: the weight of
+// each apple.
+////////////////////////////////////////////////////////////////
+// Output
+// Print one integer: the minimum difference between the weights
+// of the groups.
+////////////////////////////////////////////////////////////////
+// Constraints
+// 1 <= n <= 20
+// 1 <= p_i <= 10^9
+////////////////////////////////////////////////////////////////
+// Example
+// Input:
+// 5
+// 3 2 7 4 1
+// Output:
+// 1
+////////////////////////////////////////////////////////////////
+// Explanation: Group 1 has weights 2, 3 and 4 (total weight 9),
+// and group 2 has weights 1 and 7 (total weight 8).
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+# include <bits/stdc++.h>
+////////////////////////////////////////////////////////////////
+using namespace std;
+////////////////////////////////////////////////////////////////
+using i32 = int;
+using u32 = unsigned int;
+using i64 = long long;
+using u64 = unsigned long long;
+using vi32 = vector<i32>;
+using vu32 = vector<u32>;
+using vi64 = vector<i64>;
+using vu64 = vector<u64>;
+using vb8l = vector<bool>;
+using vstr = vector<string>;
+using pu32 = pair<u32,u32>;
+using vpu32 = vector<pu32>;
+////////////////////////////////////////////////////////////////
+constexpr char nl = '\n';
+constexpr char sp = ' ';
+constexpr char tab = '\t';
+constexpr u64 mod1 = 1'000'000'007;
+constexpr i64 maxi64 = numeric_limits<i64>::max();
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+inline void vrooom() {
+    cin.tie( nullptr )->sync_with_stdio( false );
+}
+////////////////////////////////////////////////////////////////
+template <typename T>
+inline T load_scalar() {
+    T y; cin >> y;
+    return y;
+}
+////////////////////////////////////////////////////////////////
+template <typename T>
+istream& operator>>( istream& is, vector<T>& v ){
+    for( auto& y: v ){ is >> y; }
+    return is;
+}
+////////////////////////////////////////////////////////////////
+template <typename T>
+inline vector<T> load_vector( u32 n ) {
+    vector<T> y( n ); cin >> y;
+    return y;
+}
+////////////////////////////////////////////////////////////////
+struct {
+    string open_bracket;
+    string close_bracket;
+    string separator;
+} CONT{ "[", "]", "," },
+  PAIR{ "(", ")", ":" };
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+# define FOR_THE_HORDE auto t = load_scalar<u32>(); while( t-- )
+# define PSH push_back
+# define POP pop_back
+# define EMP emplace_back
+# define odd( x ) ((x) & 1)
+# define evn( y ) (!odd( y ))
+# define sqr( x ) ((x) * (x))
+# define all( x ) x.begin(), x.end()
+# define siz( y ) y.size()
+# define dbg( x ) cerr << #x << " = " << x << nl
+# define key( p ) p.first
+# define val( p ) p.second
+////////////////////////////////////////////////////////////////
+# define OVERLOAD_OSTREAM_OPERATOR( Container )                \
+template <typename... T>                                       \
+ostream& operator<<( ostream& os, const Container<T...>& con ){\
+    os << CONT.open_bracket;                                   \
+    string sep = "";                                           \
+    for( const auto& y: con ){                                 \
+        os << sep << y;                                        \
+        sep = CONT.separator;                                  \
+    }                                                          \
+    return os << CONT.close_bracket;                           \
+}
+////////////////////////////////////////////////////////////////
+template <typename K, typename V>
+ostream& operator<<( ostream& os, const pair<K,V>& p ){
+    return os << PAIR.open_bracket
+              << key( p )
+              << PAIR.separator
+              << val( p )
+              << PAIR.close_bracket;
+}
+////////////////////////////////////////////////////////////////
+OVERLOAD_OSTREAM_OPERATOR( vector );
+OVERLOAD_OSTREAM_OPERATOR( set );
+////////////////////////////////////////////////////////////////
+template <typename Container>
+auto sum( const Container& c ){
+    using T = typename Container::value_type;
+    return accumulate( all( c ), T( 0 ));
+}
+////////////////////////////////////////////////////////////////
+class Algorithm {
+public:
+    Algorithm( u32 n, const vi64& a ):
+        n( n ),
+        a( a ),
+        total( sum( a ))
+    {}
+    void pusk() {
+        srch( 0 );
+        cout << dif << nl;
+    }
+private:
+    const u32 n;
+    const vi64& a;
+    const i64 total;
+    i64 dif = maxi64;
+    vi64 group;
+    void srch( u32 j ){
+        if( j == n ){
+            dif = min( dif, abs( total - 2 * sum( group )));
+        } else {
+            group.PSH( a [j] );
+            srch( j + 1 );
+            group.POP();
+            srch( j + 1 );
+        }        
+    }
+};
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+int main() {
+    vrooom();
+    if( 0 ){
+    } else {
+        auto n = load_scalar<u32>();
+        auto a = load_vector<i64>( n );
+        Algorithm( n, a ).pusk();
+    }
+}
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////

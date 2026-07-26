@@ -250,9 +250,10 @@ void pusk() {
 // are at rest, separated by a distance l. How far
 // does each travel before they meet?
 //
-// The trick here is that ceter of mass stays the same
-// so we can put the center of our coordinate system
-// there: 0 = m₁l₁ - m₂l₂, l₁ + l₂ = l; from here:
+// The trick here is that center of mass stays the
+// same so we can put the center of our coordinate
+// system there: 0 = m₁l₁ - m₂l₂, l₁ + l₂ = l; from
+// here:
 //
 // l₁ = lm₂/(m₁ + m₂), l₂ = lm₁/(m₁ + m₂)
 //

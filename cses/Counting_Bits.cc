@@ -210,7 +210,7 @@ void pusk() {
 // angle at the vertex of its axial cross-section is α.
 //
 // Ok let's look at an angle α = 2β in 2D and inscribe
-// a  circle with radius R and center O that touches
+// a circle with radius R and center O that touches
 // the two rays say in points A and B, next we draw
 // second circle (r,O') that touches the rays in C and
 // D. Lets look at the trapezoid OO'CA or OO'DB we can

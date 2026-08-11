@@ -193,10 +193,10 @@ pair<i32,i32> getxy( const string& s ){
 //          can write T₂ + T₃ = m₁ω²y₁, T₂ and T₃ are
 // m₁    m₃ directed alongside l₂ and l₃ respectively,
 //          we can write the above vector equation as
-// a projection to the y₁ direction and perpendicular,
-// for this we need expressions for sin and cos for
-// the angles between y₁ and l₂ and l₃, we can use the
-// dot product:
+// a projections parallel and perpendicular to y₁, for
+// this we need expressions for sin and cos of the
+// angles between y₁ and l₂ and l₃; we can use the dot
+// product:
 // y₁.l₂ = |y₁|lcosβ = (m₂l₂.l₂ + m₃l₃.l₂)/m
 // y₁.l₃ = |y₁|lcosγ = (m₂l₂.l₃ + m₃l₃.l₃)/m
 // l₂.l₂ = l₃.l₃ = l²

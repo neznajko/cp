@@ -126,45 +126,49 @@ vector<T> vec( T* p, i32 n ){
 // topic, but lets consider for example a square ABCD:
 //
 // A---P---B  What symmetries we have here?
-// |   |   |  If we take an axis perpendicular to the
+// |   |   |  If we take the axis perpendicular to the
 // S---O---Q  square passing through O we can rotate
-// |   |   |  at 0, π/2, π, 3π/2, 4 rotations, then 
+// |   |   |  at 0, π/2, π, 3π/2 - 4 rotations, then 
 // D---R---C  we can take π rotations around PR, SQ,
 //            AC and BD axis totally 8 transformations
-// that leaves the square the same, this rotations
+// that leave the square unchanged, these rotations
 // form a group G, with |G| = 8
 //
 // Now we go further and wanna color the sides of the
-// square (AB,BC,CD,DA) with 3 colors, how many
-// different squares we have. Naturally we can answer
+// square: (AB,BC,CD,DA) with 3 colors. How many
+// different squares we get? Naturally we can answer
 // 81, right for each side 3 colors = 3x3x3x3 = 81,
 // but the problem is that some of those squares are
-// the same for example (R,R,B,B) and (B,B,R,R) we
-// need just to rotate at π around AC. There is a
-// formula called Burnside's Lemma which gives an
-// answer how to do that, but to understand why it
-// works we need another theorem known as the
-// Orbit-Stabilizer Theorem:
+// the same for example (R,R,B,B) and (B,B,R,R), we
+// need just to rotate one of them at π around AC.
+// There is a formula called Burnside's Lemma which
+// gives us the answer how to do that properly, but to
+// understand why it works we need another theorem
+// known as the Orbit-Stabilizer Theorem:
 //
-// let X is some set in our case this will be the set
+// Let X is some set, in our case this will be the set
 // of all 81 squares, and a group G( the 8 rotations ),
 // we define the orbit of x ∈ X as:
-// Orb(x) = { g⋅x | g ∈ G }, for example what is the
+// Orb(x) = {g⋅x | g ∈ G}, for example what is the
 // orbit of (R,R,B,B), now we have to apply all
 // transformations of G:
-// 0    | (R,R,B,B) =  So as we can see we have applied
-// π/2  | (B,R,R,B) <  8 transformations, but the
-// π    | (B,B,R,R) -  resulting set consist of only 4
-// 3π/2 | (R,B,B,R) +  different elements, cos multiple
-// PR   | (R,B,B,R) +  different group transformations
-// SQ   | (B,R,R,B) <  result in same squares like the
-// AC   | (B,B,R,R) -  identity 0 and the BD rotations,
-// BD   | (R,R,B,B) =  these are called stabilizers:
+////////////////////////////////// /  ////////////////
+// 0    | (R,R,B,B) =  So as we can see we've applied
+// π/2  | (B,R,R,B) <  8 rotations, but the resulting
+// π    | (B,B,R,R) -  set consist of only 4 elements
+// 3π/2 | (R,B,B,R) +  with 2 squares repeating, two
+// PR   | (R,B,B,R) +  of the transformations are 
+// SQ   | (B,R,R,B) <  notable: the 0 and the BD which
+// AC   | (B,B,R,R) -  leave the (R,R,B,B) unchanged,
+// BD   | (R,R,B,B) =  these are known as stabilizers:
 //
-// Stab(x) = { g ∈ G | g⋅x = x }, from here it
-// should be somehow clear that the size of the group
-// |G| is equal to the size of the stabilizer times
-// the size of the orbit:
+// Stab(x) = {g ∈ G | g⋅x = x}, it turns out that all
+// other group actions that result in same y, like π
+// and AC, should have the same count as Stab(x), cos
+// if g₁⋅x = g₂⋅x = y we can write:
+// x = g₁⁻¹g₁⋅x = g₁⁻¹g₂⋅x, zo h := g₁⁻¹g₂ is in the
+// stabilizer, that is for every h in Stab(x) we have
+// g₁⋅x = g₁h⋅x = y, T | H | A | T | S why we can write:
 // |G| = |Orb(x)||Stab(x)|, and this is true for all
 // x ∈ X, if you need more rigorous proof please refer
 // to the Theory Section:), anyway basically this is
@@ -177,17 +181,18 @@ vector<T> vec( T* p, i32 n ){
 // 1) fix g and take the size of the set:
 //    X(g) := {x ∈ X | g⋅x = x}, then sum over all g
 //    Sum{g∈G}(|X(g)|), just for curiosity what is
-//    the set X(π); the square (R,B,R,B) after
+//    the set X(π); the square (R,B,R,B) after a
 //    rotation around O axis at π will transform into
-//    (R,B,R,B), so X(π) = { RBRB, RGRG, BRBR, BGBG,
-//    GRGR, GBGB } and |X(π)| = 6
+//    (R,B,R,B), so X(π) = {RBRB, RGRG, BRBR, BGBG,
+//    GRGR, GBGB} and |X(π)| = 6
 // 2) fix x and take the size of the set:
-//    G(x) := {g ∈ G | g⋅x = x } and sum over all x,
-//    but as we can see G(x) is exactly the
-//    stabilizer Stab(x) and as we know:
-//    |Stab(x)| = |G|/|Orb(x)| so summing will give:
-//    |G|n where n is the number of orbits, zo we 
-//    have arrived at the Burnside's Lemma:
+//    G(x) := {g ∈ G | g⋅x = x} and sum over all x,
+//    but as we can see G(x) is exactly the stabilizer
+//    Stab(x) and as we know: |Stab(x)| = |G|/|Orb(x)|,
+//    so summing will give: |G|n where n is the number
+//    of orbits, cos there are |Orb(x)| x's with same
+//    orbit Orb(x), zo we have arrived at the
+//    Burnside's Lemma:
 //
 //    n = Sum{g∈G}(|X(g)|)/|G|,
 // 
